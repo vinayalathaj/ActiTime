@@ -2,12 +2,11 @@ package handlingpopups;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class AlertConfirmation {
+public class UnhandledAlertException {
 
 	public static void main(String[] args) 
 	{
@@ -25,10 +24,9 @@ public class AlertConfirmation {
 		driver.findElement(By.xpath("//div[@class='item createNewCustomer']")).click();
 		driver.findElement(By.xpath("//input[@class='inputFieldWithPlaceholder newNameField inputNameField']")).sendKeys("Vinaya");
 		driver.findElement(By.xpath("//div[@class='greyButton cancelBtn']")).click();
-		Alert alt=driver.switchTo().alert();
-		System.out.println(alt.getText());
-		//alt.accept(); 
-		alt.dismiss();
+		
+		driver.findElement(By.id("logoutLink")).click();
+
 	}
 
 }
